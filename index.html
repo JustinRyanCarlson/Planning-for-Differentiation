@@ -1,100 +1,94 @@
 <!DOCTYPE html>
+<html>
 
-  <html>
-    <head>
-    
-<!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+<head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 
-      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-
-    <body>
- <!--    <div class="container"> -->
-      <div class="blue">
-         <h2>Planning for Differentiation</h2>    
-      </div>
-      <hr/> 
-      <div class="row">
-          <div class="col s2 m2 l2 left">
+<body>
+    <div class="blue">
+        <h2>Planning for Differentiation</h2>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col s2 m2 l2 left">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <nav>
+                        <div class="nav-wrapper z-depth-2">
+                            <form>
+                                <div class="input-field">
+                                    <input id="search-box" type="search" required>
+                                    <label for="search-box"><i class="material-icons">Search</i></label>
+                                    <i class="material-icons">x</i>
+                                </div>
+                            </form>
+                        </div>
+                    </nav>
+                    <button id="submit-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="collection">
+                        <a data-site="youtube" class="collection-item site active">You Tube</a>
+                        <a data-site="khan" class="collection-item site">Khan Acedemy</a>
+                        <a data-site="coursera" class="collection-item site">Coursera</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s7 m7 l7">
+            <div id="search-links"></div>
+        </div>
+        <div class="col s3 m3 l3 left">
             <nav>
-              <div class="nav-wrapper z-depth-4">
-                <form>
-                  <div class="input-field">
-                    <input id="search" type="search" required>
-                    <label for="search"><i class="material-icons">Search</i></label>
-                    <i class="material-icons">X</i>
-                  </div>
-                </form>
-              </div>
+                <div class="nav-wrapper z-depth-2">
+                    <form>
+                        <div class="input-field">
+                            <input id="add-student" type="search" required>
+                            <label for="add-student"><i class="material-icons">Student Name</i></label>
+                            <i class="material-icons">x</i>
+                        </div>
+                    </form>
+                </div>
             </nav>
-            <button class="btn waves-effect waves-light" type="submit" name="action">+</button>
-          </div>
-          <div class="col s7 m7 l7">
-          </div>
-          <div class="col s3 m3 l3 left">
-           
-            <nav>
-              <div class="nav-wrapper">
-                <form>
-                  <div class="input-field">
-                    <input id="search" type="search" required>
-                    <label for="search"><i class="material-icons">Student Name</i></label>
-                    <i class="material-icons">close</i>
-                  </div>
+            <button id="submit-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            </button>
+            <div class="collection">
+                <form action="#">
+                    <a href="#!" class="collection-item">
+                        <p>
+                            <input type="checkbox" id="test5" />
+                            <label for="test5">Student 1</label>
+                        </p>
+                    </a>
+                    <a href="#!" class="collection-item">
+                        <p>
+                            <input type="checkbox" id="test5" />
+                            <label for="test5">Student 2</label>
+                        </p>
+                    </a>
+                    <a href="#!" class="collection-item">
+                        <p>
+                            <input type="checkbox" id="test5" />
+                            <label for="test5">Student 3</label>
+                        </p>
+                    </a>
                 </form>
-              </div>
-            </nav>
-              <button class="btn waves-effect waves-light" type="submit" name="action">+</button>
-          </div>
-      </div>
- 
- <div class="row">   
-  <div class="col s2 m2 l2">  
-    <div class="collection">
-        <a href="#!" class="collection-item">You Tube</a>
-        <a href="#!" class="collection-item">Khan Acedemy</a>
-        <a href="#!" class="collection-item">Coursera</a>
-      </div>
+            </div>
+        </div>
     </div>
-  <div class="col s7 m7 l7">
-    <div class="references">
-    </div>
-  </div>
-  <div class="col s3 m3 l3">
-      <div class="collection">
-        <form action="#">
-          <a href="#!" class="collection-item">
-            <p>
-              <input type="checkbox" id="test5" />
-              <label for="test5">Student 1</label>
-            </p>
-          </a>
-          <a href="#!" class="collection-item">
-            <p>
-              <input type="checkbox" id="test5" />
-              <label for="test5">Student 2</label>
-            </p>
-          </a>
-          <a href="#!" class="collection-item">
-            <p>
-              <input type="checkbox" id="test5" />
-              <label for="test5">Student 3</label>
-            </p>
-          </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--   </div>  --> <!-- end of container -->         
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
-    
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
- 
-
+    <!-- end of container -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
-</html>
 
+</html>
