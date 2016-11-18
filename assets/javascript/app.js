@@ -19,7 +19,6 @@ $(document).ready(function () {
     var studentNum = 1;
     //
     // CODE ==================================================================================
-    //
     // FIREBASE
     // Firebase call that happens on page load and value updates.
     database.ref().on("value", function (snapshot) {
