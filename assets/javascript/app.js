@@ -14,32 +14,16 @@ firebase.initializeApp(config);
 //
 var database = firebase.database();
 var youtubeWatchURL = "https://www.youtube.com/watch?v=";
-var searchTerm = "";
 //
 // CODE ==================================================================================
 //
 $("#submit-button").on('click', function () {
-    searchTerm = $('#search-box').val().trim();
+    var searchTerm = $('#search-box').val().trim();
     $('#search-box').val('');
+    console.log(searchTerm);
     youtubeAPIRequest(searchTerm);
-    return false;
-});
-$(".site").on('click', function () {
-    var clickedSite = $(this).attr('data-site');
-    $('#search-links').empty();
-    if (clickedSite === 'youtube') {
-        $(this).addClass('active');
-        $('[data-site="khan"], [data-site="coursera"]').removeClass('active');
-        youtubeAPIRequest(searchTerm);
-    } else if (clickedSite === 'khan') {
-        $(this).addClass('active');
-        $('[data-site="youtube"], [data-site="coursera"]').removeClass('active');
-        youtubeKhanAPIRequest(searchTerm);
-    } else {
-        $(this).addClass('active');
-        $('[data-site="khan"], [data-site="youtube"]').removeClass('active');
-        courseraAPIRequest(searchTerm);
-    }
+    youtubeKhanAPIRequest(searchTerm);
+    courseraAPIRequest(searchTerm);
     return false;
 });
 //
@@ -47,122 +31,30 @@ $(".site").on('click', function () {
 //
 function youtubeAPIRequest(searchTerm) {
     var youtubeQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + searchTerm + "&maxResults=15&order=relevance&key=AIzaSyBInOsaJzC5bjqZp0eHlS3V7vM3QNkhwVg";
-    // $.ajax({ url: youtubeQuery, method: 'GET' }).done(function(response) {
-    //     for (var i = 0; i < 10; i++) {
-    //         var newEntry = $('<div>');
-    //         newEntry.addClass('card-panel');
-    //         var description = response.items[i].snippet.description;
-    //         var img = $('<img>');
-    //         img.attr('src', response.items[i].snippet.thumbnails.default.url);
-    //         var title = response.items[i].snippet.title;
-    //         newEntry.append(img).append(title).append(description);
-    //         $('#search-links').hide().append(newEntry).fadeIn(1500);
-    //     }
-    // });
-    //testing out dynamically making a card
+    console.log(youtubeQuery);
     $.ajax({
         url: youtubeQuery,
         method: 'GET'
     }).done(function (response) {
         console.log(response);
         for (var i = 0; i < 10; i++) {
-            var newEntry = $('<div>').addClass('card-panel');
-            $('<h5>').addClass('header').text(response.items[i].snippet.title).appendTo(newEntry);
-            var cardHorizontal = $('<div>').addClass('card horizontal');
-            var cardImg = $('<div>').addClass('card-image');
-            $('<img>').attr('src', response.items[i].snippet.thumbnails.medium.url).appendTo(cardImg);
-            cardHorizontal.append(cardImg);
-            var cardStacked = $('<div>').addClass('card-stacked');
-            var cardContent = $('<div>').addClass('card-content');
-            $('<p>').text(response.items[i].snippet.description).appendTo(cardContent);
-            cardStacked.append(cardContent);
-            var cardAction = $('<div>').addClass('card-action');
-            var videoURL = youtubeWatchURL + response.items[i].id.videoId;
-            $('<a>').attr('href', videoURL).attr('target', "_BLANK").text(videoURL).appendTo(cardAction);
-            cardStacked.append(cardAction);
-            cardHorizontal.append(cardStacked);
-            newEntry.append(cardHorizontal);
-            $('#search-links').hide().append(newEntry).fadeIn(1500);
+            var newEntry = $('<div>');
+            var description = response.items[i].snippet.description;
+            var img = $('<img>');
+            img.attr('src', response.items[i].snippet.thumbnails.medium.url);
+            var title = response.items[i].snippet.title;
+            newEntry.append(img).append(title).append(description);
+            $('#youtube').append(newEntry);
         }
     });
 }
 
 function youtubeKhanAPIRequest(searchTerm) {
     var khanYoutubeQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + searchTerm + "&maxResults=15&channelId=UC4a-Gbdw7vOaccHmFo40b9g&order=relevance&key=AIzaSyBInOsaJzC5bjqZp0eHlS3V7vM3QNkhwVg";
-    // $.ajax({ url: khanYoutubeQuery, method: 'GET' }).done(function(response) {
-    //     for (var i = 0; i < 10; i++) {
-    //         var newEntry = $('<div>');
-    //         newEntry.addClass('card-panel');
-    //         var description = response.items[i].snippet.description;
-    //         var img = $('<img>');
-    //         img.attr('src', response.items[i].snippet.thumbnails.default.url);
-    //         var title = response.items[i].snippet.title;
-    //         newEntry.append(img).append(title).append(description);
-    //         $('#search-links').hide().append(newEntry).fadeIn(1500);
-    //     }
-    // });
-    $.ajax({
-        url: khanYoutubeQuery,
-        method: 'GET'
-    }).done(function (response) {
-        for (var i = 0; i < 10; i++) {
-            var newEntry = $('<div>').addClass('card-panel');
-            $('<h5>').addClass('header').text(response.items[i].snippet.title).appendTo(newEntry);
-            var cardHorizontal = $('<div>').addClass('card horizontal');
-            var cardImg = $('<div>').addClass('card-image');
-            $('<img>').attr('src', response.items[i].snippet.thumbnails.medium.url).appendTo(cardImg);
-            cardHorizontal.append(cardImg);
-            var cardStacked = $('<div>').addClass('card-stacked');
-            var cardContent = $('<div>').addClass('card-content');
-            $('<p>').text(response.items[i].snippet.description).appendTo(cardContent);
-            cardStacked.append(cardContent);
-            var cardAction = $('<div>').addClass('card-action');
-            var videoURL = youtubeWatchURL + response.items[i].id.videoId;
-            $('<a>').attr('href', videoURL).attr('target', "_BLANK").text(videoURL).appendTo(cardAction);
-            cardStacked.append(cardAction);
-            cardHorizontal.append(cardStacked);
-            newEntry.append(cardHorizontal);
-            $('#search-links').hide().append(newEntry).fadeIn(1500);
-        }
-    });
+    console.log(khanYoutubeQuery);
 }
 
 function courseraAPIRequest(searchTerm) {
-    var courseraQuery = "https://crossorigin.me/https://api.coursera.org/api/courses.v1?q=search&query=" + searchTerm + "&fields=photoUrl,description,name";
-    // $.ajax({ url: courseraQuery, method: 'GET' }).done(function(response) {
-    //     for (var i = 0; i < 10; i++) {
-    //         var newEntry = $('<div>');
-    //         newEntry.addClass('card-panel');
-    //         var description = response.elements[i].description;
-    //         var img = $('<img>');
-    //         img.attr('src', response.elements[i].photoUrl);
-    //         img.attr('height', 90);
-    //         var title = response.elements[i].name;
-    //         newEntry.append(img).append(title).append(description);
-    //         $('#search-links').hide().append(newEntry).fadeIn(1500);
-    //     }
-    // });
-    $.ajax({
-        url: courseraQuery,
-        method: 'GET'
-    }).done(function (response) {
-        for (var i = 0; i < 10; i++) {
-            var newEntry = $('<div>').addClass('card-panel');
-            $('<h5>').addClass('header').text(response.elements[i].name).appendTo(newEntry);
-            var cardHorizontal = $('<div>').addClass('card horizontal');
-            var cardImg = $('<div>').addClass('card-image');
-            $('<img>').attr('src', response.elements[i].photoUrl).appendTo(cardImg);
-            cardHorizontal.append(cardImg);
-            var cardStacked = $('<div>').addClass('card-stacked');
-            var cardContent = $('<div>').addClass('card-content');
-            $('<p>').text(response.elements[i].description).appendTo(cardContent);
-            cardStacked.append(cardContent);
-            var cardAction = $('<div>').addClass('card-action');
-            $('<a>').attr('href', '#').appendTo(cardAction);
-            cardStacked.append(cardAction);
-            cardHorizontal.append(cardStacked);
-            newEntry.append(cardHorizontal);
-            $('#search-links').hide().append(newEntry).fadeIn(1500);
-        }
-    });
+    var courseraQuery = "https://api.coursera.org/api/courses.v1?q=search&query=" + searchTerm + "&fields=photoUrl,description,name";
+    console.log(courseraQuery);
 }
