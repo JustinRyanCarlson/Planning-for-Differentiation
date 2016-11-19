@@ -4,8 +4,7 @@
 }
 
 body {
-    background-image: url(../images/background.jpeg);
-    background-size: 100%;
+	background: #f5f5f5;
 }
 
 .row {
