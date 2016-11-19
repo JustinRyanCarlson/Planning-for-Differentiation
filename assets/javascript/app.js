@@ -21,6 +21,9 @@ $(document).ready(function () {
     //
     // CODE ==================================================================================
     //
+    // Hides preloader on page load
+    $(".preloader-wrapper").hide();
+    // Submit button
     $("#submit-button").on('click', function () {
         searchTerm = $('#search-box').val().trim();
         $('#search-box').val('');
