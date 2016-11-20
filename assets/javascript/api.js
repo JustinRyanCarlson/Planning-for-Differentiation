@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    //
+    // GLOBAL VARIABLES ==================================================================================
+    //
     var youtubeWatchURL = "https://www.youtube.com/watch?v=";
     var searchTerm = "";
     //
@@ -6,8 +9,8 @@ $(document).ready(function() {
     //
     // Hides preloader on page load
     $(".preloader-wrapper").hide();
-    // Submit button
-    $("#submit-button").on('click', function() {
+    // Search button
+    $("#search-button").on('click', function() {
         $(".getting-started").hide();
         $('#search-links').empty();
         $(".preloader-wrapper").show();
@@ -21,16 +24,13 @@ $(document).ready(function() {
         var clickedSite = $(this).attr('data-site');
         $('#search-links').empty();
         if (clickedSite === 'youtube') {
-            $(this).addClass('active');
-            $('[data-site="khan"], [data-site="coursera"]').removeClass('active');
+            $('ul.tabs').tabs();
             youtubeAPIRequest(searchTerm);
         } else if (clickedSite === 'khan') {
-            $(this).addClass('active');
-            $('[data-site="youtube"], [data-site="coursera"]').removeClass('active');
+            $('ul.tabs').tabs();
             youtubeKhanAPIRequest(searchTerm);
         } else {
-            $(this).addClass('active');
-            $('[data-site="khan"], [data-site="youtube"]').removeClass('active');
+            $('ul.tabs').tabs();
             courseraAPIRequest(searchTerm);
         }
         return false;
@@ -61,6 +61,7 @@ $(document).ready(function() {
             console.log(response);
             for (var i = 0; i < 10; i++) {
                 var newEntry = $('<div>').addClass('card-panel');
+                newEntry.attr('data-id', response.items[i].id.videoId);
                 $('<h5>').addClass('header').text(response.items[i].snippet.title).appendTo(newEntry);
                 var cardHorizontal = $('<div>').addClass('card horizontal');
                 var cardImg = $('<div>').addClass('card-image');
@@ -102,6 +103,7 @@ $(document).ready(function() {
             $(".preloader-wrapper").hide();
             for (var i = 0; i < 10; i++) {
                 var newEntry = $('<div>').addClass('card-panel');
+                newEntry.attr('data-id', response.items[i].id.videoId);
                 $('<h5>').addClass('header').text(response.items[i].snippet.title).appendTo(newEntry);
                 var cardHorizontal = $('<div>').addClass('card horizontal');
                 var cardImg = $('<div>').addClass('card-image');
@@ -144,6 +146,7 @@ $(document).ready(function() {
             $(".preloader-wrapper").hide();
             for (var i = 0; i < 10; i++) {
                 var newEntry = $('<div>').addClass('card-panel');
+                newEntry.attr('data-id', response.elements[i].name);
                 $('<h5>').addClass('header').text(response.elements[i].name).appendTo(newEntry);
                 var cardHorizontal = $('<div>').addClass('card horizontal');
                 var cardImg = $('<div>').addClass('card-image');

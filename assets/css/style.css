@@ -31,8 +31,8 @@ h2 {
     margin-bottom: 0px;
 }
 
-#submit-button {
-    margin-top: 10px;
+#search-button {
+    margin-top: 30px;
 }
 
 .panel {
@@ -51,16 +51,56 @@ h2 {
 }
 
 .preloader-wrapper {
-    margin: 250px 275px;
+    margin: 250px 430px;
 }
 
 .card-panel {
     padding-top: 10px;
     padding-bottom: 1px;
+    margin-bottom: 15px;
+    margin-top: 10px;
 }
-
-.active-card {}
 
 .delete:active {
     color: black;
+}
+
+.margin-top {
+    margin-top: 15px;
+}
+
+.margin-top-2 {
+    margin-top: 5px;
+}
+
+.tab-margin {
+    margin-top: 30px;
+}
+
+#tab-padding {
+    padding: 0px;
+}
+
+.selected-card {
+    background: gray;
+}
+
+.card-background {
+    background: white;
+    border-top: white;
+    margin: 0px 12px;
+}
+
+p {
+    padding-bottom: 20px;
+}
+
+h4 {
+    padding-top: 10px;
+}
+
+.panel-two {
+    background: rgba(204, 204, 204, 0.3);
+    padding: 10px;
+    margin: 10px auto;
 }
