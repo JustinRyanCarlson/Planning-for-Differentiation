@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     //
     // FIREBASE INITIALIZE ==================================================================================
     //
@@ -16,18 +16,25 @@ $(document).ready(function () {
     var database = firebase.database();
     var youtubeWatchURL = "https://www.youtube.com/watch?v=";
     var searchTerm = "";
-    var studentObjId;
     var studentNum = 1;
+    var pushKey;
     //
     // CODE ==================================================================================
     //
-    $("#submit-button").on('click', function () {
+    // Hides preloader on page load
+    $(".preloader-wrapper").hide();
+    // Submit button
+    $("#submit-button").on('click', function() {
+        $(".getting-started").hide();
+        $('#search-links').empty();
+        $(".preloader-wrapper").show();
         searchTerm = $('#search-box').val().trim();
         $('#search-box').val('');
         youtubeAPIRequest(searchTerm);
         return false;
     });
-    $(".site").on('click', function () {
+    $(".site").on('click', function() {
+        $(".preloader-wrapper").show();
         var clickedSite = $(this).attr('data-site');
         $('#search-links').empty();
         if (clickedSite === 'youtube') {
@@ -47,43 +54,52 @@ $(document).ready(function () {
     });
     // FIREBASE
     // Firebase call that happens on page load and value updates.
-    database.ref().on("value", function (snapshot) {
+    database.ref().on("value", function(snapshot) {
         $('#student-list').empty();
         // Console.log the value of this snapshot
         console.log(snapshot.val());
-        snapshot.forEach(function (childSnapshot) {
+        snapshot.forEach(function(childSnapshot) {
             var name = childSnapshot.val().name;
+            var keyFromDatabase = childSnapshot.val().key;
             // var email = childSnapshot.val().email;
-            $('#student-list').append("<a href='#!' class='collection-item'><p><input type='checkbox' id='test" + studentNum + "'/><label for='test" + studentNum + "'>" + name + "</label></p></a>");
+            $('#student-list').append("<a href='#!' class='collection-item' data-studentKey='" + keyFromDatabase + "'><p><input type='checkbox' id='test" + studentNum + "'/><label for='test" + studentNum + "'>" + name + "</label><span class='right delete' data-keyDelete='" + keyFromDatabase + "'>X</span></p></a>");
             studentNum++;
         });
         // If it fails, cue error handling.
-    }, function (errorObject) {
+    }, function(errorObject) {
         // Log a read error and its error code.
         console.log("The read failed: " + errorObject.code);
     });
     // Adding Students
-    $("#add-button").on('click', function () {
+    $("#add-button").on('click', function() {
         var name = $('#icon_name').val().trim();
         var email = $('#icon_email').val().trim();
         if (name.length > 0 && email.length > 0) {
-            // Push to database.
-            database.ref().push({
+            // Push to database and get key.
+            pushKey = database.ref().push({
                 name: name,
-                email: email
+                email: email,
+                videos: 'none',
+                key: 'none'
+            }).key;
+            console.log(pushKey);
+            database.ref().child(pushKey).update({
+                key: pushKey
             });
-            studentObjId = database.ref().push().getKey();
-            console.log(studentObjId);
             // Empty input fields.
             $('#icon_name').val('');
             $('#icon_email').val('');
         } else if (name.length > 0) {
-            // Push to database.
-            database.ref().push({
+            // Push to database and get key.
+            pushKey = database.ref().push({
                 name: name,
+                videos: 'none',
+                key: 'none'
+            }).key;
+            console.log(pushKey);
+            database.ref().child(pushKey).update({
+                key: pushKey
             });
-            studentObjId = database.ref().push().getKey();
-            console.log(studentObjId);
             // Empty input fields.
             $('#icon_name').val('');
         } else {
@@ -91,6 +107,14 @@ $(document).ready(function () {
         }
         // Don't refresh.
         return false;
+    });
+
+    // Delete student from database and DOM when X is clicked
+    $(document.body).on('click', '.delete', function() {
+        var key = $(this).attr('data-keyDelete');
+        console.log(key);
+        String(key);
+        database.ref().child(key).remove();
     });
     //
     // FUNCTIONS ==================================================================================
@@ -113,7 +137,8 @@ $(document).ready(function () {
         $.ajax({
             url: youtubeQuery,
             method: 'GET'
-        }).done(function (response) {
+        }).done(function(response) {
+            $(".preloader-wrapper").hide();
             console.log(response);
             for (var i = 0; i < 10; i++) {
                 var newEntry = $('<div>').addClass('card-panel');
@@ -132,7 +157,7 @@ $(document).ready(function () {
                 cardStacked.append(cardAction);
                 cardHorizontal.append(cardStacked);
                 newEntry.append(cardHorizontal);
-                $('#search-links').hide().append(newEntry).fadeIn(1500);
+                $('#search-links').append(newEntry);
             }
         });
     }
@@ -154,7 +179,8 @@ $(document).ready(function () {
         $.ajax({
             url: khanYoutubeQuery,
             method: 'GET'
-        }).done(function (response) {
+        }).done(function(response) {
+            $(".preloader-wrapper").hide();
             for (var i = 0; i < 10; i++) {
                 var newEntry = $('<div>').addClass('card-panel');
                 $('<h5>').addClass('header').text(response.items[i].snippet.title).appendTo(newEntry);
@@ -172,7 +198,7 @@ $(document).ready(function () {
                 cardStacked.append(cardAction);
                 cardHorizontal.append(cardStacked);
                 newEntry.append(cardHorizontal);
-                $('#search-links').hide().append(newEntry).fadeIn(1500);
+                $('#search-links').append(newEntry);
             }
         });
     }
@@ -195,7 +221,8 @@ $(document).ready(function () {
         $.ajax({
             url: courseraQuery,
             method: 'GET'
-        }).done(function (response) {
+        }).done(function(response) {
+            $(".preloader-wrapper").hide();
             for (var i = 0; i < 10; i++) {
                 var newEntry = $('<div>').addClass('card-panel');
                 $('<h5>').addClass('header').text(response.elements[i].name).appendTo(newEntry);
@@ -212,7 +239,7 @@ $(document).ready(function () {
                 cardStacked.append(cardAction);
                 cardHorizontal.append(cardStacked);
                 newEntry.append(cardHorizontal);
-                $('#search-links').hide().append(newEntry).fadeIn(1500);
+                $('#search-links').append(newEntry);
             }
         });
     }
