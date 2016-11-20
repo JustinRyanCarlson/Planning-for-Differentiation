@@ -15,7 +15,7 @@
     <nav class="z-depth-3 top-nav">
         <div class="nav-wrapper">
             <div class="brand-logo">
-                <i class="material-icons" id="logo">recent_actors</i>Individualize
+                <i class="material-icons" id="logo">recent_actors</i>Assign It
             </div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="index.html">Assign</a></li>
@@ -24,61 +24,76 @@
         </div>
     </nav>
     <div class="row">
-        <div class="col s3 m3 l3 left">
-            <div class="panel">
-                <nav>
-                    <div class="nav-wrapper z-depth-2">
-                        <form>
-                            <div class="input-field white search-bar">
-                                <input id="search-box" type="search" required>
-                                <label for="search-box"><i class="material-icons search-icons">search</i></label>
-                                <i class="material-icons search-icons">close</i>
+        <div class="col s9 m9 l9 margin-top">
+            <div class="row">
+                <!-- Search Bar -->
+                <div class="col s4 m4 l4">
+                    <nav>
+                        <div class="nav-wrapper z-depth-2">
+                            <form>
+                                <div class="input-field white search-bar">
+                                    <input id="search-box" placeholder="Search" type="search" required>
+                                    <label for="search-box">
+                                        <i class="material-icons search-icons">search</i>
+                                    </label>
+                                    <i class="material-icons search-icons">close</i>
+                                </div>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Search Button -->
+                <div class="col s2 m2 l2">
+                    <button id="search-button" class="btn waves-effect waves-light red lighten-2" type="submit" name="action">
+                        Search
+                        <i class="material-icons right">search</i>
+                    </button>
+                </div>
+                <!-- Tabs -->
+                <div class="col s6 m6 l6 tab-margin">
+                    <div class="row">
+                        <div class="col s12" id="tab-padding">
+                            <ul class="tabs">
+                                <li class="tab col s4"><a data-site="youtube" class="site" href="#test1">YouTube</a></li>
+                                <li class="tab col s4"><a data-site="khan" class="site" href="#test2">Khan</a></li>
+                                <li class="tab col s4"><a data-site="coursera" class="site" href="#test3">Coursera</a></li>
+                            </ul>
+                        </div>
+                        <div id="test1" class="col s12"></div>
+                        <div id="test2" class="col s12"></div>
+                        <div id="test3" class="col s12"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Preloader -->
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="preloader-wrapper big active">
+                        <div class="spinner-layer spinner-red-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
                             </div>
-                        </form>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
                     </div>
-                </nav>
-                <button id="submit-button" class="btn waves-effect waves-light red lighten-2" type="submit" name="action">
-                    Search
-                    <i class="material-icons right">search</i>
-                </button>
-            </div>
-            <div class="collection">
-                <a data-site="youtube" class="collection-item site active">You Tube</a>
-                <a data-site="khan" class="collection-item site">Khan Academy</a>
-                <a data-site="coursera" class="collection-item site">Coursera</a>
-            </div>
-        </div>
-        <div class="col s6 m6 l6">
-            <div id="search-links"></div>
-            <div class="panel getting-started">
-                <h4>Getting Started</h4>
-                <p>Enter a keyword into the search bar to return the top 10 results from YouTube, Khan Academy, and Coursera.</p>
-            </div>
-            <!-- Modal Structure -->
-            <!--            <div id="modal1" class="modal bottom-sheet">
-                <div class="modal-content">
-                    <h4>Modal Header</h4>
-                    <p>A bunch of text</p>
                 </div>
-                <div class="modal-footer">
-                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                </div>
-            </div> -->
-            <div class="preloader-wrapper big active">
-                <div class="spinner-layer spinner-red-only">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
+            </div>
+            <div class="row card-background">
+                <div class="col s12 m12 l12" id="search-links">
+                    <div class="panel-two">
+                        <h4>Getting Started</h4>
+                        <p>Enter a topic into the search bar to see the top 10 results from YouTube, Khan Academy, and Coursera. Select a resource and a student, click Submit, and that resource gets assigned to that sudent.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col s3 m3 l3 left">
+        <!-- Student Panel -->
+        <div class="col s3 m3 l3 right margin-top-2">
             <div class="panel">
                 <div class="row">
                     <form action="submit">
@@ -108,10 +123,16 @@
             </div>
             <div class="row">
                 <div class="col s12" id="no-padding">
-                    <div class="collection">
-                        <form action="#" id="student-list">
-                        </form>
-                    </div>
+                    <div class="collection" id="student-list"></div>
+                </div>
+            </div>
+            <!--   Submit Button -->
+            <div class="row">
+                <div class="col s12">
+                    <button id="submit-button" class="btn waves-effect waves-light red lighten-2 col s5 m5 l5 right" type="submit" name="action">
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -122,6 +143,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script type="text/javascript" src="assets/javascript/api.js"></script>
     <script type="text/javascript" src="assets/javascript/firebase.js"></script>
+    <script type="text/javascript" src="assets/javascript/assign.js"></script>
 </body>
 
 </html>

@@ -14,7 +14,6 @@ $(document).ready(function() {
     // GLOBAL VARIABLES ==================================================================================
     //
     var database = firebase.database();
-    var studentNum = 1;
     var pushKey;
     //
     // CODE ==================================================================================
@@ -27,10 +26,10 @@ $(document).ready(function() {
         snapshot.forEach(function(childSnapshot) {
             var name = childSnapshot.val().name;
             var keyFromDatabase = childSnapshot.val().key;
-            var studentElement = "<a href='#!' class='collection-item' data-studentKey='" + keyFromDatabase + "'><p><input type='checkbox' id='test" + studentNum + "'/><label for='test" + studentNum + "'>" + name + "</label><span class='right delete' data-keyDelete='" + keyFromDatabase + "'>X</span></p></a>";
+            var counter = childSnapshot.val().counter;
+            var videos = childSnapshot.val().videos;
             // var email = childSnapshot.val().email;
-            $('#student-list').append(studentElement);
-            studentNum++;
+            $('#student-list').append("<a href='#!' class='collection-item' data-studentKey='" + keyFromDatabase + "' data-counter='" + counter + "'>" + name + "<span class='right delete' data-keyDelete='" + keyFromDatabase + "'>X</span></a>");
         });
         // If it fails, cue error handling.
     }, function(errorObject) {
@@ -46,8 +45,9 @@ $(document).ready(function() {
             pushKey = database.ref().push({
                 name: name,
                 email: email,
-                videos: 'none',
-                key: 'none'
+                videos: {},
+                key: 'none',
+                counter: 0
             }).key;
             console.log(pushKey);
             database.ref().child(pushKey).update({
@@ -60,8 +60,9 @@ $(document).ready(function() {
             // Push to database and get key.
             pushKey = database.ref().push({
                 name: name,
-                videos: 'none',
-                key: 'none'
+                videos: {},
+                key: 'none',
+                counter: 0
             }).key;
             console.log(pushKey);
             database.ref().child(pushKey).update({
