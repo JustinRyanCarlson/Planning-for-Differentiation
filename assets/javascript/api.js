@@ -9,6 +9,7 @@ $(document).ready(function() {
     //
     // Hides preloader on page load
     $(".preloader-wrapper").hide();
+    $(".indicator").hide();
     // Search button
     $("#search-button").on('click', function() {
         $(".getting-started").hide();
@@ -24,13 +25,16 @@ $(document).ready(function() {
         var clickedSite = $(this).attr('data-site');
         $('#search-links').empty();
         if (clickedSite === 'youtube') {
-            $('ul.tabs').tabs();
+            $('.site').removeClass('active-tab');
+            $(this).addClass('active-tab');
             youtubeAPIRequest(searchTerm);
         } else if (clickedSite === 'khan') {
-            $('ul.tabs').tabs();
+            $('.site').removeClass('active-tab');
+            $(this).addClass('active-tab');
             youtubeKhanAPIRequest(searchTerm);
         } else {
-            $('ul.tabs').tabs();
+            $('.site').removeClass('active-tab');
+            $(this).addClass('active-tab');
             courseraAPIRequest(searchTerm);
         }
         return false;
