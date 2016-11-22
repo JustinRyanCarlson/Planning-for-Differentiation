@@ -12,17 +12,19 @@
 </head>
 
 <body>
-    <nav class="z-depth-3 top-nav">
-        <div class="nav-wrapper">
-            <div class="brand-logo">
-                <i class="material-icons" id="logo">recent_actors</i>Assign It
+    <div class="navbar-fixed">
+        <nav class="z-depth-3 top-nav">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <i class="material-icons" id="logo">recent_actors</i>Assign It
+                </div>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Assign</a></li>
+                    <li><a href="students.html">View Students</a></li>
+                </ul>
             </div>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.html">Assign</a></li>
-                <li><a href="students.html">View Students</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </div>
     <div class="row">
         <div class="col s9 m9 l9 margin-top">
             <div class="row">
@@ -54,7 +56,7 @@
                     <div class="row">
                         <div class="col s12" id="tab-padding">
                             <ul class="tabs">
-                                <li class="tab col s4"><a data-site="youtube" class="site" href="#test1">YouTube</a></li>
+                                <li class="tab col s4"><a data-site="youtube" class="site" id="youtube" href="#test1">YouTube</a></li>
                                 <li class="tab col s4"><a data-site="khan" class="site" href="#test2">Khan</a></li>
                                 <li class="tab col s4"><a data-site="coursera" class="site" href="#test3">Coursera</a></li>
                             </ul>
@@ -85,9 +87,9 @@
             </div>
             <div class="row card-background">
                 <div class="col s12 m12 l12" id="search-links">
-                    <div class="panel-two">
+                    <div>
                         <h4>Getting Started</h4>
-                        <p>Enter a topic into the search bar to see the top 10 results from YouTube, Khan Academy, and Coursera. Select a resource and a student, click Submit, and that resource gets assigned to that sudent.</p>
+                        <p class="getting-started-text">Enter a topic into the search bar to see the top 10 results from YouTube, Khan Academy, and Coursera. Select a resource and a student, click Submit, and that resource gets assigned to that sudent.</p>
                     </div>
                 </div>
             </div>
@@ -130,7 +132,7 @@
             <div class="row">
                 <div class="col s12">
                     <button id="submit-button" class="btn waves-effect waves-light red lighten-2 col s5 m5 l5 right" type="submit" name="action">
-                        Submit
+                        Assign
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
@@ -138,6 +140,27 @@
         </div>
     </div>
     <!-- end of container -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Contact</h5>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Justin Carlson</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Dee Terwilliger</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Katie Shiro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2016 Copyright Dee Justin Katie
+            </div>
+        </div>
+    </footer>
     <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
