@@ -12,13 +12,20 @@ $(document).ready(function() {
     $(".indicator").hide();
     // Search button
     $("#search-button").on('click', function() {
-        $(".getting-started").hide();
-        $('#search-links').empty();
-        $(".preloader-wrapper").show();
         searchTerm = $('#search-box').val().trim();
-        $('#search-box').val('');
-        youtubeAPIRequest(searchTerm);
-        return false;
+        if (searchTerm.length > 0) {
+            $(".getting-started").hide();
+            $('#search-links').empty();
+            $(".preloader-wrapper").show();
+            $('#search-box').val('');
+            youtubeAPIRequest(searchTerm);
+            return false;
+        } else {
+            $("#modal2").show();
+            $('.modal-close').on('click', function() {
+                $('#modal2').hide();
+            });
+        }
     });
     $(".site").on('click', function() {
         $(".preloader-wrapper").show();

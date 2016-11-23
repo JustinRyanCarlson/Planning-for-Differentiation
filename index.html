@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <div class="navbar-fixed">
         <nav class="z-depth-3 top-nav">
             <div class="nav-wrapper">
@@ -25,6 +26,7 @@
             </div>
         </nav>
     </div>
+    <!-- Search and Tabs Row -->
     <div class="row">
         <div class="col s9 m9 l9 margin-top">
             <div class="row">
@@ -85,6 +87,35 @@
                     </div>
                 </div>
             </div>
+            <!-- MODALS -->
+            <!-- Student Name Modal -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <p class="modal-text">Please enter a student name.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">OK</a>
+                </div>
+            </div>
+            <!-- Search Modal -->
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <p class="modal-text">Please enter a topic to search.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">OK</a>
+                </div>
+            </div>
+            <!-- Submit without student or video -->
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                    <p class="modal-text">Please select both a video and a student.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">OK</a>
+                </div>
+            </div>
+            <!-- Getting Started and Cards -->
             <div class="row card-background">
                 <div class="col s12 m12 l12" id="search-links">
                     <div>
@@ -94,7 +125,8 @@
                 </div>
             </div>
         </div>
-        <!-- Student Panel -->
+        <!-- STUDENT PANEL -->
+        <!-- Name and Email Form -->
         <div class="col s3 m3 l3 right margin-top-2">
             <div class="panel">
                 <div class="row">
@@ -115,6 +147,7 @@
                         </div>
                     </form>
                 </div>
+                <!-- Add Button -->
                 <div class="row">
                     <div class="col s7 m7 l7"></div>
                     <button id="add-button" class="btn waves-effect waves-light red lighten-2 col s5 m5 l5" type="submit" name="action">
@@ -123,15 +156,16 @@
                     </button>
                 </div>
             </div>
+            <!-- List of Students -->
             <div class="row">
                 <div class="col s12" id="no-padding">
                     <div class="collection" id="student-list"></div>
                 </div>
             </div>
-            <!--   Submit Button -->
+            <!--   Assign Button -->
             <div class="row">
                 <div class="col s12">
-                    <button id="submit-button" class="btn waves-effect waves-light red lighten-2 col s5 m5 l5 right" type="submit" name="action">
+                    <button id="submit-button" class="btn waves-effect waves-light red lighten-2 col s5 m5 l5 right modal-trigger" type="submit" name="action">
                         Assign
                         <i class="material-icons right">send</i>
                     </button>
@@ -143,21 +177,41 @@
     <footer class="page-footer">
         <div class="container">
             <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Contact</h5>
+                <div class="col l3 s6">
+                    <h5>Developed By</h5>
                 </div>
-                <div class="col l4 offset-l2 s12">
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Justin Carlson</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Dee Terwilliger</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Katie Shiro</a></li>
-                    </ul>
+                <div class="col l3 s6">
+                    <p>Justin Carlson</p>
+                    <a href="https://github.com/JustinRyanCarlson" target="_blank">
+                        <img src="assets/images/githubicon.png" height="30" alt="GitHub">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="assets/images/linkedinicon.png" height="30" alt="LinkedIn">
+                    </a>
+                </div>
+                <div class="col l3 s6">
+                    <p>Katie Shiro</p>
+                    <a href="https://github.com/kshiro622" target="_blank">
+                        <img src="assets/images/githubicon.png" height="30" alt="GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/katie-shiro" target="_blank">
+                        <img src="assets/images/linkedinicon.png" height="30" alt="LinkedIn">
+                    </a>
+                </div>
+                <div class="col l3 s6">
+                    <p>Dee Terwilliger</p>
+                    <a href="https://github.com/deenyt" target="_blank">
+                        <img src="assets/images/githubicon.png" height="30" alt="GitHub">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="assets/images/linkedinicon.png" height="30" alt="LinkedIn">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2016 Copyright Dee Justin Katie
+                © 2016 Copyright Justin Carlson, Katie Shiro, and Dee Terwilliger
             </div>
         </div>
     </footer>
