@@ -26,10 +26,10 @@ $(document).ready(function() {
         snapshot.forEach(function(childSnapshot) {
             var name = childSnapshot.val().name;
             var keyFromDatabase = childSnapshot.val().key;
-            var counter = childSnapshot.val().counter;
             var videos = childSnapshot.val().videos;
+            console.log(videos);
             // var email = childSnapshot.val().email;
-            $('#student-list').append("<a href='#!' class='collection-item' data-studentKey='" + keyFromDatabase + "' data-counter='" + counter + "'>" + name + "<span class='right delete' data-keyDelete='" + keyFromDatabase + "'>X</span></a>");
+            $('#student-list').append("<a href='#!' class='collection-item' data-studentKey='" + keyFromDatabase + "'>" + name + "<span class='right delete' data-keyDelete='" + keyFromDatabase + "'>X</span></a>");
         });
         // If it fails, cue error handling.
     }, function(errorObject) {
@@ -45,9 +45,8 @@ $(document).ready(function() {
             pushKey = database.ref().push({
                 name: name,
                 email: email,
-                videos: {},
+                videos: '',
                 key: 'none',
-                counter: 0
             }).key;
             console.log(pushKey);
             database.ref().child(pushKey).update({
@@ -60,9 +59,8 @@ $(document).ready(function() {
             // Push to database and get key.
             pushKey = database.ref().push({
                 name: name,
-                videos: {},
+                videos: '',
                 key: 'none',
-                counter: 0
             }).key;
             console.log(pushKey);
             database.ref().child(pushKey).update({
@@ -71,10 +69,13 @@ $(document).ready(function() {
             // Empty input fields.
             $('#icon_name').val('');
         } else {
-            alert('Student Name field is required.');
+            $("#modal1").show();
+            $('.modal-close').on('click', function() {
+                $('#modal1').hide();
+            });
+            // Don't refresh.
+            return false;
         }
-        // Don't refresh.
-        return false;
     });
 
     // Delete student from database and DOM when X is clicked

@@ -95,7 +95,7 @@ h2 {
 }
 
 .getting-started-text {
-    padding-bottom: 210px;
+    padding-bottom: 220px;
 }
 
 h4 {
@@ -118,4 +118,21 @@ ul {
 .active-tab {
     text-decoration: underline;
     color: #ee6e73;
+}
+
+.modal {
+    z-index: 1;
+    width: 500px;
+}
+
+.modal-text {
+    font-size: 20px;
+}
+
+.page-footer {
+    color: white;
+}
+
+.footer-copyright {
+    margin-top: 10px;
 }

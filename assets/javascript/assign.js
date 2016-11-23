@@ -4,10 +4,9 @@ $(document).ready(function() {
     //
     var database = firebase.database();
     var materialClicked = false;
-    var materialId;
-    var studentObjKey;
+    var materialId = '';
+    var studentObjKey = '';
     var videosObj;
-    // var materialArray = [];
     //
     // CODE ==================================================================================
     //
@@ -25,7 +24,6 @@ $(document).ready(function() {
 
     $(document.body).on('click', '.collection-item', function() {
         studentObjKey = $(this).attr('data-studentKey');
-        studentCounter = $(this).attr('data-counter');
         String(studentObjKey);
         console.log(studentObjKey);
         $('.collection-item').removeClass('active');
@@ -33,22 +31,19 @@ $(document).ready(function() {
     });
 
     $('#submit-button').on('click', function() {
-
-        studentCounter++;
-        //var vidoesObj = object we get back from firebase
-        //add new video as new key value pair with key being counter value
-        console.log(studentCounter);
-        database.ref().child(studentObjKey).update({
-            counter: studentCounter
-        });
-        database.ref().on("value", function(snapshot) {
-            videosObj = snapshot.child(studentObjKey).val().videos;
-            console.log(videosObj);
-            videosObj[studentCounter] = materialId;
-            database.ref().child(studentObjKey).update({
-                videos: videosObj
+        if (materialId.length > 0 && studentObjKey.length > 0) {
+            database.ref().child(studentObjKey).child('videos').push({
+                videoId: materialId
             });
-        });
-        $('.card-panel').removeClass('selected-card');
+            $('.card-panel').removeClass('selected-card');
+            //reset video ID and student key
+            materialId = '';
+            studentObjKey = '';
+        } else {
+            $("#modal3").show();
+            $('.modal-close').on('click', function() {
+                $('#modal3').hide();
+            });
+        }
     });
 });
