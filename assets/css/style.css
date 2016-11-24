@@ -95,7 +95,7 @@ h2 {
 }
 
 .getting-started-text {
-    padding-bottom: 210px;
+    padding-bottom: 220px;
 }
 
 h4 {
@@ -120,6 +120,19 @@ ul {
     color: #ee6e73;
 }
 
-li {
-    display: inline;
+.modal {
+    z-index: 1;
+    width: 500px;
+}
+
+.modal-text {
+    font-size: 20px;
+}
+
+.page-footer {
+    color: white;
+}
+
+.footer-copyright {
+    margin-top: 10px;
 }
