@@ -119,3 +119,7 @@ ul {
     text-decoration: underline;
     color: #ee6e73;
 }
+
+li {
+    display: inline;
+}
