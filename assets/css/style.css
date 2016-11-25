@@ -34,8 +34,21 @@ h2 {
     margin-bottom: 0px;
 }
 
+#search-box:visited {
+    background: white;
+}
+
 #search-button {
     margin-top: 30px;
+    background: #465a66;
+}
+
+#add-button {
+    background-color: #465a66;
+}
+
+#assign-button {
+    background-color: #465a66;
 }
 
 .panel {
@@ -84,8 +97,20 @@ h2 {
     padding: 0px;
 }
 
+#youtube,
+#khan,
+#coursera {
+    color: #4db6ac;
+}
+
+#youtube:hover,
+#khan:hover,
+#coursera:hover {
+    color: #b2dfdb;
+}
+
 .selected-card {
-    background: gray;
+    opacity: 0.5;
 }
 
 .card-background {
@@ -117,7 +142,7 @@ ul {
 
 .active-tab {
     text-decoration: underline;
-    color: #ee6e73;
+    color: #4db6ac;
 }
 
 .modal {
@@ -135,4 +160,107 @@ ul {
 
 .footer-copyright {
     margin-top: 10px;
+}
+
+#footer {
+    background: #bdbdbd;
+}
+
+
+/*#header {
+    background: #487a99;
+}*/
+
+#picturesFrontPage {
+    font-size: 40px;
+    background-color: #cfd8dc;
+    font-family: Comic sans, Calibri, Trebuchet, sans-serif;
+}
+
+#instruction-set {
+    font-size: 25px;
+    height: 120px;
+}
+
+#instruction-set,
+#title-info {
+    font-style: italic;
+    font-family: Comic sans, Calibri, Trebuchet, sans-serif;
+    background-color: #4db6ac;
+    text-align: center;
+}
+
+.start-page-p {
+    padding: 10px;
+}
+
+.front-page-img {
+    width: 100%;
+    height: auto;
+}
+
+.bottom-edge {
+    position: static;
+    height: 8px;
+    background-color: #9e9e9e;
+}
+
+#title-info {
+    font-size: 20px;
+}
+
+#slideshow {
+    margin: auto;
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 1px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+#slideshow > div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+#leave-page {
+    font-size: 20px;
+    border-style: solid;
+    border-color: #4db6ac;
+    text-align: center;
+    background-color: white;
+}
+
+@media screen and (min-width: 960px) {
+    #leave-page {
+        height: 35px;
+        width: 160px;
+        position: fixed;
+        top: 420px;
+        left: 600px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    #leave-page {
+        height: 35px;
+        width: 160px;
+        position: fixed;
+        top: 420px;
+        left: 350px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #leave-page {
+        height: 35px;
+        width: 160px;
+        position: fixed;
+        top: 420px;
+        left: 200px;
+    }
 }

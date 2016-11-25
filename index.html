@@ -14,14 +14,14 @@
 <body>
     <!-- Navbar -->
     <div class="navbar-fixed">
-        <nav class="z-depth-3 top-nav">
+        <nav class="z-depth-3 top-nav" id="header">
             <div class="nav-wrapper">
                 <div class="brand-logo">
                     <i class="material-icons" id="logo">recent_actors</i>Assign It
                 </div>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="index.html">Assign</a></li>
-                    <li><a href="students.html">View Students</a></li>
+                    <li><a href="view_students.html">View Students</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,7 +48,7 @@
                 </div>
                 <!-- Search Button -->
                 <div class="col s2 m2 l2">
-                    <button id="search-button" class="btn waves-effect waves-light red lighten-2" type="submit" name="action">
+                    <button id="search-button" class="btn waves-effect waves-light" type="submit" name="action">
                         Search
                         <i class="material-icons right">search</i>
                     </button>
@@ -59,8 +59,8 @@
                         <div class="col s12" id="tab-padding">
                             <ul class="tabs">
                                 <li class="tab col s4"><a data-site="youtube" class="site" id="youtube" href="#test1">YouTube</a></li>
-                                <li class="tab col s4"><a data-site="khan" class="site" href="#test2">Khan</a></li>
-                                <li class="tab col s4"><a data-site="coursera" class="site" href="#test3">Coursera</a></li>
+                                <li class="tab col s4"><a data-site="khan" class="site" href="#test2" id="khan">Khan</a></li>
+                                <li class="tab col s4"><a data-site="coursera" class="site" href="#test3" id="coursera">Coursera</a></li>
                             </ul>
                         </div>
                         <div id="test1" class="col s12"></div>
@@ -150,7 +150,7 @@
                 <!-- Add Button -->
                 <div class="row">
                     <div class="col s7 m7 l7"></div>
-                    <button id="add-button" class="btn waves-effect waves-light red lighten-2 col s5 m5 l5" type="submit" name="action">
+                    <button id="add-button" class="btn waves-effect waves-light col s5 m5 l5" type="submit" name="action">
                         Add
                         <i class="material-icons right">add</i>
                     </button>
@@ -165,7 +165,7 @@
             <!--   Assign Button -->
             <div class="row">
                 <div class="col s12">
-                    <button id="submit-button" class="btn waves-effect waves-light red lighten-2 col s5 m5 l5 right modal-trigger" type="submit" name="action">
+                    <button id="assign-button" class="btn waves-effect waves-light col s5 m5 l5 right modal-trigger" type="submit" name="action">
                         Assign
                         <i class="material-icons right">send</i>
                     </button>
@@ -174,7 +174,7 @@
         </div>
     </div>
     <!-- end of container -->
-    <footer class="page-footer">
+    <footer class="page-footer" id="footer">
         <div class="container">
             <div class="row">
                 <div class="col l3 s6">

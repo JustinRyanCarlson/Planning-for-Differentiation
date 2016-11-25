@@ -17,7 +17,9 @@ $(document).ready(function() {
             $(".getting-started").hide();
             $('#search-links').empty();
             $(".preloader-wrapper").show();
-            $('#search-box').val('');
+            $("search-box").val('');
+            $('.site').removeClass('active-tab');
+            $('#youtube').addClass('active-tab');
             youtubeAPIRequest(searchTerm);
             return false;
         } else {
