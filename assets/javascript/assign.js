@@ -30,7 +30,7 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
 
-    $('#submit-button').on('click', function() {
+    $('#assign-button').on('click', function() {
         if (materialId.length > 0 && studentObjKey.length > 0) {
             database.ref().child(studentObjKey).child('videos').push({
                 videoId: materialId
