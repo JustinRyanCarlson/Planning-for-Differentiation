@@ -7,6 +7,9 @@ $(document).ready(function() {
     //
     // CODE ==================================================================================
     //
+
+    $(".sticky_column").stick_in_parent();
+    $("#search-links").stick_in_parent("inner_scrolling");
     // Hides preloader on page load
     $(".preloader-wrapper").hide();
     $(".indicator").hide();
