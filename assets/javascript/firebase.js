@@ -27,9 +27,11 @@ $(document).ready(function() {
             var name = childSnapshot.val().name;
             var keyFromDatabase = childSnapshot.val().key;
             var videos = childSnapshot.val().videos;
+            var counter = childSnapshot.val().counter;
             console.log(videos);
+            console.log(counter);
             // var email = childSnapshot.val().email;
-            $('#student-list').append("<a href='#!' class='collection-item' data-studentKey='" + keyFromDatabase + "'>" + name + "<span class='right delete' data-keyDelete='" + keyFromDatabase + "'>X</span></a>");
+            $('#student-list').append("<a href='#!' class='collection-item' data-studentKey='" + keyFromDatabase + "' data-counter='" + counter + "'>" + name + "<span class='counter'> (" + counter + ")</span><span class='right delete' data-keyDelete='" + keyFromDatabase + "'>X</span></a>");
         });
         // If it fails, cue error handling.
     }, function(errorObject) {
@@ -47,6 +49,7 @@ $(document).ready(function() {
                 email: email,
                 videos: '',
                 key: 'none',
+                counter: 0
             }).key;
             console.log(pushKey);
             database.ref().child(pushKey).update({
@@ -61,6 +64,7 @@ $(document).ready(function() {
                 name: name,
                 videos: '',
                 key: 'none',
+                counter: 0
             }).key;
             console.log(pushKey);
             database.ref().child(pushKey).update({

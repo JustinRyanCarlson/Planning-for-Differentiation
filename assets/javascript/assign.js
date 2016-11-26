@@ -7,6 +7,7 @@ $(document).ready(function() {
     var materialId = '';
     var studentObjKey = '';
     var videosObj;
+    var counter;
     //
     // CODE ==================================================================================
     //
@@ -24,6 +25,7 @@ $(document).ready(function() {
 
     $(document.body).on('click', '.collection-item', function() {
         studentObjKey = $(this).attr('data-studentKey');
+        counter = $(this).attr('data-counter');
         String(studentObjKey);
         console.log(studentObjKey);
         $('.collection-item').removeClass('active');
@@ -32,8 +34,12 @@ $(document).ready(function() {
 
     $('#assign-button').on('click', function() {
         if (materialId.length > 0 && studentObjKey.length > 0) {
+            counter++;
             database.ref().child(studentObjKey).child('videos').push({
                 videoId: materialId
+            });
+            database.ref().child(studentObjKey).update({
+                counter: counter
             });
             $('.card-panel').removeClass('selected-card');
             //reset video ID and student key
