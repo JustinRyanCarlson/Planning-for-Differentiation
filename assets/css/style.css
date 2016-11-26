@@ -204,6 +204,10 @@ ul {
     height: auto;
 }
 
+#padding-left-right {
+    padding: 0 10px;
+}
+
 .bottom-edge {
     position: static;
     height: 8px;

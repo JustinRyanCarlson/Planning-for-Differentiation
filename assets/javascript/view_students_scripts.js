@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     var database = firebase.database();
-    var youtubeLink = "https://www.youtube.com/watch?v=";
+    var youtubeLink = "www.youtube.com/watch?v=";
 
 
     // FIREBASE
@@ -14,7 +14,7 @@ $(document).ready(function() {
             var studentVideos = childSnapshot.val().videos;
 
 
-            var col = $('<div>').addClass('col s12 m12');
+            var col = $('<div>').addClass('col s12 m6');
             var cardColor = $('<div>').addClass('card blue-grey darken-1');
             var cardContent = $('<div>').addClass('card-content white-text');
             var cardTitle = $('<span>').addClass('card-title').text(studentName + ' (' + studentEmail + ')');
@@ -44,8 +44,15 @@ $(document).ready(function() {
                 childSnapshot.forEach(function(childSnapshot) {
                     console.log(childSnapshot.val().videoId);
                     studentVideo = childSnapshot.val().videoId;
-                    var newStudentVideo = $('<a>').text(youtubeLink + studentVideo).attr('href', 'youtubeLink + studentVideo');
+                    var newStudentVideo;
+                    if (studentVideo.length === 11) {
+                        newStudentVideo = $('<a>').text(youtubeLink + studentVideo).attr('href', 'youtubeLink + studentVideo');
+                    } else {
+                        newStudentVideo = $('<a>').text('Coursera Course: ' + studentVideo);
+                    }
+                    var newLine = $('<br>');
                     cardAction.append(newStudentVideo);
+                    cardAction.append(newLine);
                 });
                 col.append(cardColor);
                 cardColor.append(cardContent);
