@@ -124,7 +124,7 @@ h2 {
 }
 
 .getting-started-text {
-    padding-bottom: 220px;
+    padding-bottom: 310px;
 }
 
 h4 {
@@ -160,7 +160,6 @@ ul {
 
 .page-footer {
     color: white;
-    padding-top: 0px;
 }
 
 .footer-copyright {
@@ -169,6 +168,7 @@ ul {
 
 #footer {
     background: #bdbdbd;
+    padding-top: 3px;
 }
 
 
