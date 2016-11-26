@@ -86,7 +86,11 @@ h2 {
 }
 
 .margin-top-2 {
-    margin-top: 5px;
+    margin-top: 95px;
+}
+
+.margin-none {
+    margin-top: 0px;
 }
 
 .tab-margin {
@@ -156,10 +160,11 @@ ul {
 
 .page-footer {
     color: white;
+    padding-top: 0px;
 }
 
 .footer-copyright {
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 #footer {
