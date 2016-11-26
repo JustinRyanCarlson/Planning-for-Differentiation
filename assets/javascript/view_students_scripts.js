@@ -1,8 +1,4 @@
 $(document).ready(function() {
-    //
-    // FIREBASE INITIALIZE ==================================================================================
-    //
-
 
     var database = firebase.database();
     var youtubeLink = "https://www.youtube.com/watch?v=";

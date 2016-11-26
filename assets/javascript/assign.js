@@ -45,5 +45,6 @@ $(document).ready(function() {
                 $('#modal3').hide();
             });
         }
+        return false;
     });
 });
