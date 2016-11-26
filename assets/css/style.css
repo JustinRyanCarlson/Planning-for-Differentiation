@@ -22,6 +22,10 @@ h2 {
     margin-bottom: 15px;
 }
 
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+    color: salmon;
+}
+
 .prefix,
 #icon_email,
 #icon_name {
@@ -124,7 +128,7 @@ h2 {
 }
 
 .getting-started-text {
-    padding-bottom: 310px;
+    padding-bottom: 250px;
 }
 
 h4 {
@@ -158,6 +162,10 @@ ul {
     font-size: 20px;
 }
 
+#student-list {
+    overflow: auto;
+}
+
 .page-footer {
     color: white;
 }
@@ -171,15 +179,51 @@ ul {
     padding-top: 3px;
 }
 
+#header {
+    background: white;
+}
 
-/*#header {
-    background: #487a99;
-}*/
+#assign-it {
+    color: #465a66;
+}
 
-#picturesFrontPage {
-    font-size: 40px;
-    background-color: #cfd8dc;
-    font-family: Comic sans, Calibri, Trebuchet, sans-serif;
+.nav-links {
+    color: salmon;
+}
+
+input:not([type]).valid,
+input:not([type]):focus.valid,
+input[type=text].valid,
+input[type=text]:focus.valid,
+input[type=password].valid,
+input[type=password]:focus.valid,
+input[type=email].valid,
+input[type=email]:focus.valid,
+input[type=url].valid,
+input[type=url]:focus.valid,
+input[type=time].valid,
+input[type=time]:focus.valid,
+input[type=date].valid,
+input[type=date]:focus.valid,
+input[type=datetime].valid,
+input[type=datetime]:focus.valid,
+input[type=datetime-local].valid,
+input[type=datetime-local]:focus.valid,
+input[type=tel].valid,
+input[type=tel]:focus.valid,
+input[type=number].valid,
+input[type=number]:focus.valid,
+input[type=search].valid,
+input[type=search]:focus.valid,
+textarea.materialize-textarea.valid,
+textarea.materialize-textarea:focus.valid {
+    border-bottom: 1px solid salmon;
+    box-shadow: 0 1px 0 0 salmon;
+    #picturesFrontPage {
+        font-size: 40px;
+        background-color: #cfd8dc;
+        font-family: Comic sans, Calibri, Trebuchet, sans-serif;
+    }
 }
 
 #instruction-set {
