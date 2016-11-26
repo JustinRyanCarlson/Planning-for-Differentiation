@@ -9,14 +9,13 @@ $(document).ready(function() {
     //
 
     $(".sticky_column").stick_in_parent();
-    $("#search-links").stick_in_parent("inner_scrolling");
     // Hides preloader on page load
     $(".preloader-wrapper").hide();
     $(".indicator").hide();
     // Search button
     $("#search-button").on('click', function() {
         searchTerm = $('#search-box').val().trim();
-        if (searchTerm.length > 0) {
+        if (searchTerm !== "") {
             $(".getting-started").hide();
             $('#search-links').empty();
             $(".preloader-wrapper").show();
@@ -44,18 +43,27 @@ $(document).ready(function() {
 
 
     $(".site").on('click', function() {
-        $(".preloader-wrapper").show();
         var clickedSite = $(this).attr('data-site');
-        $('#search-links').empty();
-        if (clickedSite === 'youtube') {
+        if (searchTerm === "") {
+            $("#modal4").show();
+            $('.modal-close').on('click', function() {
+                $('#modal4').hide();
+            });
+        } else if (clickedSite === 'youtube') {
+            $('#search-links').empty();
+            $(".preloader-wrapper").show();
             $('.site').removeClass('active-tab');
             $(this).addClass('active-tab');
             youtubeAPIRequest(searchTerm);
         } else if (clickedSite === 'khan') {
+            $('#search-links').empty();
+            $(".preloader-wrapper").show();
             $('.site').removeClass('active-tab');
             $(this).addClass('active-tab');
             youtubeKhanAPIRequest(searchTerm);
         } else {
+            $('#search-links').empty();
+            $(".preloader-wrapper").show();
             $('.site').removeClass('active-tab');
             $(this).addClass('active-tab');
             courseraAPIRequest(searchTerm);
