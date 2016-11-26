@@ -73,9 +73,10 @@ $(document).ready(function() {
             $('.modal-close').on('click', function() {
                 $('#modal1').hide();
             });
-            // Don't refresh.
-            return false;
+
         }
+        // Don't refresh.
+        return false;
     });
 
     // Delete student from database and DOM when X is clicked
