@@ -10,4 +10,8 @@ $(document).ready(function() {
             .end()
             .appendTo('#slideshow');
     }, 3000);
+
+    $("#start-button").on('click', function() {
+        location.href = 'index.html';
+    });
 });
