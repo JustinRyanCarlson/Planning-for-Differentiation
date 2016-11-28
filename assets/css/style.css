@@ -168,6 +168,7 @@ ul {
 
 .page-footer {
     color: white;
+    border-top: 1px solid #4db6ac;
 }
 
 .footer-copyright {
