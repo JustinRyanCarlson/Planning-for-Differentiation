@@ -4,14 +4,17 @@ $(document).ready(function() {
     var youtubeLink = "www.youtube.com/watch?v=";
 
     $(".preloader-wrapper").show();
+
     // FIREBASE
     // Firebase call that happens on page load and value updates.
     database.ref().on("value", function(snapshot) {
+        $('#search-links').empty();
         snapshot.forEach(function(childSnapshot) {
             var student = String(childSnapshot.key);
             var studentName = childSnapshot.val().name;
             var studentEmail = childSnapshot.val().email;
             var studentVideos = childSnapshot.val().videos;
+            var studentKeyRemove = childSnapshot.val().key;
 
 
             var col = $('<div>').addClass('col s12 m6');
@@ -42,13 +45,18 @@ $(document).ready(function() {
 
             childSnapshot.forEach(function(childSnapshot) {
                 childSnapshot.forEach(function(childSnapshot) {
-                    console.log(childSnapshot.val().videoId);
-                    studentVideo = childSnapshot.val().videoId;
+                    var studentVideoKey = childSnapshot.val().videoKey;
+                    var studentVideo = childSnapshot.val().videoId;
                     var newStudentVideo;
+                    var newStudentRemove;
                     if (studentVideo.length === 11) {
-                        newStudentVideo = $('<a>').text(youtubeLink + studentVideo).attr('href', 'youtubeLink + studentVideo');
+                        newStudentVideo = $('<a>').text(youtubeLink + studentVideo);
+                        newStudentRemove = $('<span>').text('X').addClass('right remove').attr('data-keyRemove', studentKeyRemove).attr('data-videoRemove', studentVideoKey);
+                        newStudentVideo.append(newStudentRemove);
                     } else {
                         newStudentVideo = $('<a>').text('Coursera Course: ' + studentVideo);
+                        newStudentRemove = $('<span>').text('X').addClass('right remove').attr('data-keyRemove', studentKeyRemove).attr('data-videoRemove', studentVideoKey);
+                        newStudentVideo.append(newStudentRemove);
                     }
                     var newLine = $('<br>');
                     cardAction.append(newStudentVideo);
@@ -68,6 +76,22 @@ $(document).ready(function() {
     }, function(errorObject) {
         // Log a read error and its error code.
         console.log("The read failed: " + errorObject.code);
+    });
+
+    // Delete student from database and DOM when X is clicked      EDIT EDIT OLD
+    $(document.body).on('click', '.remove', function() {
+        var keyRemove = $(this).attr('data-keyRemove');
+        var videoRemove = $(this).attr('data-videoRemove');
+        String(videoRemove);
+        String(keyRemove);
+        var counterDecriment;
+        database.ref().on("value", function(snapshot) {
+            counterDecriment = (snapshot.child(keyRemove).val().counter) - 1;
+        });
+        database.ref().child(keyRemove).update({
+            counter: counterDecriment
+        });
+        database.ref().child(keyRemove).child('videos').child(videoRemove).remove();
     });
 
 
