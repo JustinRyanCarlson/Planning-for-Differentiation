@@ -3,7 +3,7 @@ $(document).ready(function() {
     var database = firebase.database();
     var youtubeLink = "www.youtube.com/watch?v=";
 
-
+    $(".preloader-wrapper").show();
     // FIREBASE
     // Firebase call that happens on page load and value updates.
     database.ref().on("value", function(snapshot) {
@@ -60,6 +60,7 @@ $(document).ready(function() {
                 cardContent.append(cardAction);
                 $('#search-links').append(col);
             });
+            $(".preloader-wrapper").hide();
         });
 
 
