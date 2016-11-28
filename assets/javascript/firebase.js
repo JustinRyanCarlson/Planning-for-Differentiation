@@ -89,8 +89,17 @@ $(document).ready(function() {
     // Delete student from database and DOM when X is clicked
     $(document.body).on('click', '.delete', function() {
         var key = $(this).attr('data-keyDelete');
-        console.log(key);
         String(key);
-        database.ref().child(key).remove();
+        console.log(key);
+        $('#modal5').show();
+        $('#yes').on('click', function() {
+            $('#modal5').hide();
+            database.ref().child(key).remove();
+        });
+
+        $('#no').on('click', function() {
+            $('#modal5').hide();
+        });
+
     });
 });

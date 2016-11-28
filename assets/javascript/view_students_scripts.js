@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     var database = firebase.database();
-    var youtubeLink = "www.youtube.com/watch?v=";
+    var youtubeLink = "https://www.youtube.com/watch?v=";
 
     $(".preloader-wrapper").show();
 
@@ -50,11 +50,11 @@ $(document).ready(function() {
                     var newStudentVideo;
                     var newStudentRemove;
                     if (studentVideo.length === 11) {
-                        newStudentVideo = $('<a>').text(youtubeLink + studentVideo);
+                        newStudentVideo = $('<a>').attr('href', youtubeLink + studentVideo).text(youtubeLink + studentVideo).attr('target', "_BLANK");
                         newStudentRemove = $('<span>').text('X').addClass('right remove').attr('data-keyRemove', studentKeyRemove).attr('data-videoRemove', studentVideoKey);
                         newStudentVideo.append(newStudentRemove);
                     } else {
-                        newStudentVideo = $('<a>').text('Coursera Course: ' + studentVideo);
+                        newStudentVideo = $('<a>').attr('href', studentVideo).text('Coursera Course: ' + studentVideo).attr('target', "_BLANK");
                         newStudentRemove = $('<span>').text('X').addClass('right remove').attr('data-keyRemove', studentKeyRemove).attr('data-videoRemove', studentVideoKey);
                         newStudentVideo.append(newStudentRemove);
                     }
@@ -80,18 +80,25 @@ $(document).ready(function() {
 
     // Delete student from database and DOM when X is clicked      EDIT EDIT OLD
     $(document.body).on('click', '.remove', function() {
+        $("#modal6").show();
         var keyRemove = $(this).attr('data-keyRemove');
         var videoRemove = $(this).attr('data-videoRemove');
         String(videoRemove);
         String(keyRemove);
         var counterDecriment;
-        database.ref().on("value", function(snapshot) {
-            counterDecriment = (snapshot.child(keyRemove).val().counter) - 1;
+        $("#yes1").on('click', function() {
+            $("#modal6").hide();
+            database.ref().on("value", function(snapshot) {
+                counterDecriment = (snapshot.child(keyRemove).val().counter) - 1;
+            });
+            database.ref().child(keyRemove).update({
+                counter: counterDecriment
+            });
+            database.ref().child(keyRemove).child('videos').child(videoRemove).remove();
         });
-        database.ref().child(keyRemove).update({
-            counter: counterDecriment
+        $("#no1").on('click', function() {
+            $("#modal6").hide();
         });
-        database.ref().child(keyRemove).child('videos').child(videoRemove).remove();
     });
 
 

@@ -13,82 +13,95 @@
 </head>
 
 <body>
-    <div class="navbar-fixed">
-        <nav class="z-depth-3 top-nav" id="header">
-            <div class="nav-wrapper">
-                <div class="brand-logo" id="assign-it">
-                    <i class="material-icons" id="logo">recent_actors</i>Assign It
-                </div>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="index.html" class="nav-links">Assign</a></li>
-                    <li><a href="view_students.html" class="nav-links">View Students</a></li>
-                </ul>
+    <div class="content">
+        <div class="content-inside">
+            <!-- Navbar -->
+            <div class="navbar-fixed">
+                <nav class="z-depth-3 top-nav" id="header">
+                    <div class="nav-wrapper">
+                        <div class="brand-logo" id="assign-it">
+                            <i class="material-icons" id="logo">recent_actors</i>Assign It
+                        </div>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="index.html" class="nav-links">Assign</a></li>
+                            <li><a href="view_students.html" class="nav-links">View Students</a></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </nav>
-    </div>
-    <div class="row">
-        <div class="col s12 m12 l12 margin-top">
-            <!-- Preloader -->
             <div class="row">
-                <div class="col s12 m12 l12">
-                    <div class="preloader-wrapper big active">
-                        <div class="spinner-layer spinner-red-only">
-                            <div class="circle-clipper left">
-                                <div class="circle"></div>
+                <div class="col s12 m12 l12 margin-top">
+                    <!-- Preloader -->
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div class="preloader-wrapper big active">
+                                <div class="spinner-layer spinner-red-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="gap-patch">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="circle-clipper right">
-                                <div class="circle"></div>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col s12 m12 l12 card-background" id="search-links">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row ">
-                <div class="col s12 m12 l12 card-background" id="search-links">
+            <!-- Modal: Are you sure you want to Delete this Video-->
+            <div id="modal6" class="modal">
+                <div class="modal-content">
+                    <p class="modal-text">Are you sure you want to delete this video?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat" id="no1">No</a>
+                    <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat" id="yes1">Yes</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end of container -->
+    <!-- Footer -->
     <footer class="page-footer" id="footer">
-        <div>
-            <div class="row">
-                <div class="col l2"></div>
-                <div class="col l2 s6 center">
-                    <h5>Developed By</h5>
-                </div>
-                <div class="col l2 s6 center">
-                    <p>Justin Carlson</p>
-                    <a href="https://github.com/JustinRyanCarlson" target="_blank">
-                        <img src="assets/images/githubicon.png" height="30" alt="GitHub">
-                    </a>
-                    <a href="https://www.linkedin.com/in/justinryancarlson" target="_blank">
-                        <img src="assets/images/linkedinicon.png" height="30" alt="LinkedIn">
-                    </a>
-                </div>
-                <div class="col l2 s6 center">
-                    <p>Katie Shiro</p>
-                    <a href="https://github.com/kshiro622" target="_blank">
-                        <img src="assets/images/githubicon.png" height="30" alt="GitHub">
-                    </a>
-                    <a href="https://www.linkedin.com/in/katie-shiro" target="_blank">
-                        <img src="assets/images/linkedinicon.png" height="30" alt="LinkedIn">
-                    </a>
-                </div>
-                <div class="col l2 s6 center">
-                    <p>Dee Terwilliger</p>
-                    <a href="https://github.com/deenyt" target="_blank">
-                        <img src="assets/images/githubicon.png" height="30" alt="GitHub">
-                    </a>
-                    <a href="#" target="_blank">
-                        <img src="assets/images/linkedinicon.png" height="30" alt="LinkedIn">
-                    </a>
-                </div>
-                <div class="col l2"></div>
+        <div class="row">
+            <div class="col l2"></div>
+            <div class="col l2 s6 center">
+                <h5>Developed By</h5>
             </div>
+            <div class="col l2 s6 center">
+                <p>Justin Carlson</p>
+                <a href="https://github.com/JustinRyanCarlson" target="_blank">
+                    <img src="assets/images/githubicon.png" height="10" alt="GitHub" class="connect-icon">
+                </a>
+                <a href="#" target="_blank">
+                    <img src="assets/images/linkedinicon.png" height="10" alt="LinkedIn" class="connect-icon">
+                </a>
+            </div>
+            <div class="col l2 s6 center">
+                <p>Katie Shiro</p>
+                <a href="https://github.com/kshiro622" target="_blank">
+                    <img src="assets/images/githubicon.png" height="30" alt="GitHub" class="connect-icon">
+                </a>
+                <a href="https://www.linkedin.com/in/katie-shiro" target="_blank">
+                    <img src="assets/images/linkedinicon.png" height="30" alt="LinkedIn" class="connect-icon">
+                </a>
+            </div>
+            <div class="col l2 s6 center">
+                <p>Dee Terwilliger</p>
+                <a href="https://github.com/deenyt" target="_blank">
+                    <img src="assets/images/githubicon.png" height="30" alt="GitHub" class="connect-icon">
+                </a>
+                <a href="#" target="_blank">
+                    <img src="assets/images/linkedinicon.png" height="30" alt="LinkedIn" class="connect-icon">
+                </a>
+            </div>
+            <div class="col l2"></div>
         </div>
         <div class="footer-copyright">
             <div class="container center">
@@ -96,6 +109,7 @@
             </div>
         </div>
     </footer>
+    <!-- Scripts -->
     <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>

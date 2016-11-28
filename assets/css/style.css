@@ -1,3 +1,5 @@
+/*General*/
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -5,42 +7,41 @@
 
 body {
     background: #f5f5f5;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
 }
 
 .row {
     margin-bottom: 0px;
 }
 
-h2 {
-    font-size: 20px;
-    color: white;
-    margin-left: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+
+/*Header*/
+
+#header {
+    background: white;
 }
 
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+#assign-it {
+    color: #465a66;
+}
+
+.nav-links {
     color: salmon;
 }
 
-.prefix,
-#icon_email,
-#icon_name {
-    color: white;
+#logo {
+    font-size: 40px;
+    padding-left: 10px;
 }
 
-#student-input,
-#email-input,
-.validate {
-    margin-bottom: 0px;
-}
+
+/*Search Box*/
 
 #search-box:visited {
     background: white;
 }
+
+
+/*Buttons*/
 
 #search-button {
     margin-top: 30px;
@@ -55,47 +56,15 @@ h2 {
     background-color: #465a66;
 }
 
-.panel {
-    background: rgba(204, 204, 204, 0.3);
-    padding: 10px;
-    margin-top: 10px;
-}
 
-#no-padding {
-    padding: 0px;
-}
-
-#logo {
-    font-size: 40px;
-    padding-left: 10px;
-}
+/*Preloader*/
 
 .preloader-wrapper {
     margin: 250px 430px;
 }
 
-.card-panel {
-    padding-top: 10px;
-    padding-bottom: 1px;
-    margin-bottom: 15px;
-    margin-top: 10px;
-}
 
-.delete:active {
-    color: black;
-}
-
-.margin-top {
-    margin-top: 15px;
-}
-
-.margin-top-2 {
-    margin-top: 95px;
-}
-
-.margin-none {
-    margin-top: 0px;
-}
+/*Tabs*/
 
 .tab-margin {
     margin-top: 30px;
@@ -117,6 +86,18 @@ h2 {
     color: #b2dfdb;
 }
 
+.active-tab {
+    text-decoration: underline;
+    color: #4db6ac;
+}
+
+ul {
+    padding-bottom: 10px;
+}
+
+
+/*Cards*/
+
 .selected-card {
     opacity: 0.5;
 }
@@ -127,6 +108,20 @@ h2 {
     margin: 0px 12px;
 }
 
+.card-panel {
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+    color: salmon;
+}
+
+
+/*Getting Started*/
+
 .getting-started-text {
     padding-bottom: 250px;
 }
@@ -135,23 +130,8 @@ h4 {
     padding-top: 30px;
 }
 
-main {
-    flex: 1 0 auto;
-}
 
-ul {
-    padding-bottom: 10px;
-}
-
-.site {
-    color: #f59c9d;
-    text-decoration: none;
-}
-
-.active-tab {
-    text-decoration: underline;
-    color: #4db6ac;
-}
+/*Modals*/
 
 .modal {
     z-index: 1;
@@ -162,34 +142,36 @@ ul {
     font-size: 20px;
 }
 
+
+/*Student List*/
+
 #student-list {
     overflow: auto;
 }
 
-.page-footer {
-    color: white;
-    border-top: 1px solid #4db6ac;
-}
-
-.footer-copyright {
-    margin-top: 0px;
-}
-
-#footer {
-    background: #bdbdbd;
-    padding-top: 3px;
-}
-
-#header {
-    background: white;
-}
-
-#assign-it {
+.delete:active {
     color: #465a66;
 }
 
-.nav-links {
-    color: salmon;
+
+/*Student Input Fields*/
+
+.prefix,
+#icon_email,
+#icon_name {
+    color: white;
+}
+
+#student-input,
+#email-input,
+.validate {
+    margin-bottom: 0px;
+}
+
+.panel {
+    background: rgba(204, 204, 204, 0.3);
+    padding: 10px;
+    margin-top: 10px;
 }
 
 input:not([type]).valid,
@@ -220,6 +202,56 @@ textarea.materialize-textarea.valid,
 textarea.materialize-textarea:focus.valid {
     border-bottom: 1px solid salmon;
     box-shadow: 0 1px 0 0 salmon;
+}
+
+
+/*Footer*/
+
+.page-footer {
+    color: white;
+}
+
+.footer-copyright {
+    margin-top: 0px;
+}
+
+#footer {
+    background: #bdbdbd;
+    padding-top: 3px;
+    margin-top: -50px;
+}
+
+.connect-icon {
+    height: 30px;
+    width: auto;
+}
+
+.content {
+    min-height: 100%;
+}
+
+.content-inside {
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+}
+
+
+/*Padding and Margins*/
+
+#no-padding {
+    padding: 0px;
+}
+
+.margin-top {
+    margin-top: 15px;
+}
+
+.margin-top-2 {
+    margin-top: 95px;
+}
+
+.margin-none {
+    margin-top: 0px;
 }
 
 #padding-left-right {
