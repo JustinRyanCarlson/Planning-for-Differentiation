@@ -35,11 +35,15 @@ $(document).ready(function() {
     $('#assign-button').on('click', function() {
         if (materialId.length > 0 && studentObjKey.length > 0) {
             counter++;
-            database.ref().child(studentObjKey).child('videos').push({
+            var videoKeyRem = database.ref().child(studentObjKey).child('videos').push({
+                videoKey: "",
                 videoId: materialId
-            });
+            }).key;
             database.ref().child(studentObjKey).update({
                 counter: counter
+            });
+            database.ref().child(studentObjKey).child('videos').child(videoKeyRem).update({
+                videoKey: videoKeyRem
             });
             $('.card-panel').removeClass('selected-card');
             //reset video ID and student key

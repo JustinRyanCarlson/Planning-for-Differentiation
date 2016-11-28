@@ -42,6 +42,9 @@ $(document).ready(function() {
     $("#add-button").on('click', function() {
         var name = $('#icon_name').val().trim();
         var email = $('#icon_email').val().trim();
+        if (email === "") {
+            email = "No user email";
+        }
         if (name.length > 0 && email.length > 0) {
             // Push to database and get key.
             pushKey = database.ref().push({
