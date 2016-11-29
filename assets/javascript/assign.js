@@ -11,14 +11,27 @@ $(document).ready(function() {
     //
     // CODE ==================================================================================
     //
+
+    $.fn.extend({
+        animateCss: function(animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+            });
+        }
+    });
+
     $(document.body).on('click', '.card-panel', function() {
+
         if (materialClicked === false) {
             materialClicked = true;
-            $(this).addClass('selected-card');
+            $(this).addClass('selected-card animate pulse');
+            $(this).animateCss('pulse');
             materialId = $(this).data('id');
         } else {
             $('.card-panel').removeClass('selected-card');
-            $(this).addClass('selected-card');
+            $(this).addClass('selected-card animate pulse');
+            $(this).animateCss('pulse');
             materialId = $(this).data('id');
         }
     });
