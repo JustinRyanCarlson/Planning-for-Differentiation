@@ -12,26 +12,19 @@ $(document).ready(function() {
     // CODE ==================================================================================
     //
 
-    $.fn.extend({
-        animateCss: function(animationName) {
-            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-            this.addClass('animated ' + animationName).one(animationEnd, function() {
-                $(this).removeClass('animated ' + animationName);
-            });
-        }
-    });
+
 
     $(document.body).on('click', '.card-panel', function() {
 
         if (materialClicked === false) {
             materialClicked = true;
-            $(this).addClass('selected-card animate pulse');
-            $(this).animateCss('pulse');
+            $(this).addClass('selected-card');
+            $(this).animateCss('bounce');
             materialId = $(this).data('id');
         } else {
             $('.card-panel').removeClass('selected-card');
-            $(this).addClass('selected-card animate pulse');
-            $(this).animateCss('pulse');
+            $(this).addClass('selected-card');
+            $(this).animateCss('bounce');
             materialId = $(this).data('id');
         }
     });
@@ -43,6 +36,7 @@ $(document).ready(function() {
         console.log(studentObjKey);
         $('.collection-item').removeClass('active');
         $(this).addClass('active');
+        $(this).animateCss('bounce');
     });
 
     $('#assign-button').on('click', function() {
@@ -62,6 +56,7 @@ $(document).ready(function() {
             //reset video ID and student key
             materialId = '';
             studentObjKey = '';
+            $('.lightspeed').animateCss('bounceOutRight');
         } else {
             $("#modal3").show();
             $('.modal-close').on('click', function() {

@@ -8,6 +8,15 @@ $(document).ready(function() {
     // CODE ==================================================================================
     //
 
+    $.fn.extend({
+        animateCss: function(animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+            });
+        }
+    });
+
     $(".sticky_column").stick_in_parent();
     // Hides preloader on page load
     $(".preloader-wrapper").hide();

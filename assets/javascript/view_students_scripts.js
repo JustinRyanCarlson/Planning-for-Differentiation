@@ -79,27 +79,33 @@ $(document).ready(function() {
         console.log("The read failed: " + errorObject.code);
     });
 
-    // Delete student from database and DOM when X is clicked      EDIT EDIT OLD
+    // Delete student from database and DOM when X is clicked     LOOK AT THIS AGAIN FOR NEG NUMBERS
     $(document.body).on('click', '.remove', function() {
-        $("#modal6").show();
-        var keyRemove = $(this).attr('data-keyRemove');
-        var videoRemove = $(this).attr('data-videoRemove');
-        String(videoRemove);
-        String(keyRemove);
-        var counterDecriment;
-        $("#yes1").on('click', function() {
-            $("#modal6").hide();
-            database.ref().on("value", function(snapshot) {
-                counterDecriment = (snapshot.child(keyRemove).val().counter) - 1;
+        $(this).addClass('is-selected');
+        var selectedBoo = $(this).hasClass('is-selected');
+        if (selectedBoo) {
+            $("#modal6").show();
+            var keyRemove = $(this).attr('data-keyRemove');
+            var videoRemove = $(this).attr('data-videoRemove');
+            String(videoRemove);
+            String(keyRemove);
+            var counterDecriment;
+            $("#yes1").on('click', function() {
+                $("#modal6").hide();
+                database.ref().on("value", function(snapshot) {
+                    counterDecriment = (snapshot.child(keyRemove).val().counter) - 1;
+                });
+                database.ref().child(keyRemove).update({
+                    counter: counterDecriment
+                });
+                database.ref().child(keyRemove).child('videos').child(videoRemove).remove();
             });
-            database.ref().child(keyRemove).update({
-                counter: counterDecriment
+            $("#no1").on('click', function() {
+                $("#modal6").hide();
+                $(this).removeClass('is-selected');
             });
-            database.ref().child(keyRemove).child('videos').child(videoRemove).remove();
-        });
-        $("#no1").on('click', function() {
-            $("#modal6").hide();
-        });
+        }
+
     });
 
 

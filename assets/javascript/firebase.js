@@ -82,6 +82,7 @@ $(document).ready(function() {
             });
 
         }
+        $('.rotate').animateCss('rotateIn');
         // Don't refresh.
         return false;
     });
