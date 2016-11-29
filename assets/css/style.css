@@ -209,6 +209,7 @@ textarea.materialize-textarea:focus.valid {
 
 .page-footer {
     color: white;
+    border-top: solid 1px #4db6ac;
 }
 
 .footer-copyright {

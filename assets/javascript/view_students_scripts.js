@@ -52,14 +52,15 @@ $(document).ready(function() {
                     if (studentVideo.length === 11) {
                         newStudentVideo = $('<a>').attr('href', youtubeLink + studentVideo).text(youtubeLink + studentVideo).attr('target', "_BLANK");
                         newStudentRemove = $('<span>').text('X').addClass('right remove').attr('data-keyRemove', studentKeyRemove).attr('data-videoRemove', studentVideoKey);
-                        newStudentVideo.append(newStudentRemove);
+
                     } else {
                         newStudentVideo = $('<a>').attr('href', studentVideo).text('Coursera Course: ' + studentVideo).attr('target', "_BLANK");
                         newStudentRemove = $('<span>').text('X').addClass('right remove').attr('data-keyRemove', studentKeyRemove).attr('data-videoRemove', studentVideoKey);
-                        newStudentVideo.append(newStudentRemove);
+
                     }
                     var newLine = $('<br>');
                     cardAction.append(newStudentVideo);
+                    cardAction.append(newStudentRemove);
                     cardAction.append(newLine);
                 });
                 col.append(cardColor);
