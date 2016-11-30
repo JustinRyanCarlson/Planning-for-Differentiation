@@ -87,6 +87,13 @@ $(document).ready(function() {
         return false;
     });
 
+    $('#icon_email, #icon_name').keypress(function(e) {
+        if (e.which == 13) { //Enter key pressed
+            $('#add-button').click(); //Trigger search button click event
+            return false;
+        }
+    });
+
     // Delete student from database and DOM when X is clicked
     $(document.body).on('click', '.delete', function() {
         var key = $(this).attr('data-keyDelete');
