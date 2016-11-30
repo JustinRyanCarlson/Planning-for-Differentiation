@@ -127,7 +127,7 @@ ul {
 /*Getting Started*/
 
 .getting-started-text {
-    padding-bottom: 250px;
+    padding-bottom: 76px;
 }
 
 h4 {
@@ -262,4 +262,12 @@ textarea.materialize-textarea:focus.valid {
 
 #padding-left-right {
     padding: 0 10px;
+}
+
+.card-action-height {
+    min-height: 200px;
+}
+
+#search-links {
+    min-height: 500px;
 }

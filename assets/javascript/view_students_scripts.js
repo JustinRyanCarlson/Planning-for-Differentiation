@@ -21,7 +21,7 @@ $(document).ready(function() {
             var cardColor = $('<div>').addClass('card blue-grey darken-1');
             var cardContent = $('<div>').addClass('card-content white-text');
             var cardTitle = $('<span>').addClass('card-title').text(studentName + ' (' + studentEmail + ')');
-            var cardAction = $('<div>').addClass('card-action');
+            var cardAction = $('<div>').addClass('card-action card-action-height');
 
 
 
@@ -81,30 +81,26 @@ $(document).ready(function() {
 
     // Delete student from database and DOM when X is clicked     LOOK AT THIS AGAIN FOR NEG NUMBERS
     $(document.body).on('click', '.remove', function() {
-        $(this).addClass('is-selected');
-        var selectedBoo = $(this).hasClass('is-selected');
-        if (selectedBoo) {
-            $("#modal6").show();
-            var keyRemove = $(this).attr('data-keyRemove');
-            var videoRemove = $(this).attr('data-videoRemove');
-            String(videoRemove);
-            String(keyRemove);
-            var counterDecriment;
-            $("#yes1").on('click', function() {
-                $("#modal6").hide();
-                database.ref().on("value", function(snapshot) {
-                    counterDecriment = (snapshot.child(keyRemove).val().counter) - 1;
-                });
-                database.ref().child(keyRemove).update({
-                    counter: counterDecriment
-                });
-                database.ref().child(keyRemove).child('videos').child(videoRemove).remove();
+        $("#modal6").show();
+        var keyRemove = $(this).attr('data-keyRemove');
+        var videoRemove = $(this).attr('data-videoRemove');
+        String(videoRemove);
+        String(keyRemove);
+        var counterDecriment;
+        $("#yes1").on('click', function() {
+            $("#modal6").hide();
+            database.ref().on("value", function(snapshot) {
+                counterDecriment = (snapshot.child(keyRemove).val().counter) - 1;
             });
-            $("#no1").on('click', function() {
-                $("#modal6").hide();
-                $(this).removeClass('is-selected');
+            database.ref().child(keyRemove).update({
+                counter: counterDecriment
             });
-        }
+            database.ref().child(keyRemove).child('videos').child(videoRemove).remove();
+        });
+        $("#no1").on('click', function() {
+            $("#modal6").hide();
+        });
+
 
     });
 
