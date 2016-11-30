@@ -33,7 +33,6 @@ $(document).ready(function() {
         studentObjKey = $(this).attr('data-studentKey');
         counter = $(this).attr('data-counter');
         String(studentObjKey);
-        console.log(studentObjKey);
         $('.collection-item').removeClass('active');
         $(this).addClass('active');
         $(this).animateCss('bounce');

@@ -21,15 +21,12 @@ $(document).ready(function() {
     // Firebase call that happens on page load and value updates.
     database.ref().on("value", function(snapshot) {
         $('#student-list').empty();
-        // Console.log the value of this snapshot
-        console.log(snapshot.val());
+
         snapshot.forEach(function(childSnapshot) {
             var name = childSnapshot.val().name;
             var keyFromDatabase = childSnapshot.val().key;
             var videos = childSnapshot.val().videos;
             var counter = childSnapshot.val().counter;
-            console.log(videos);
-            console.log(counter);
             // var email = childSnapshot.val().email;
             $('#student-list').append("<a href='#!' class='collection-item' data-studentKey='" + keyFromDatabase + "' data-counter='" + counter + "'>" + name + "<span class='counter'> (" + counter + ")</span><span class='right delete' data-keyDelete='" + keyFromDatabase + "'>X</span></a>");
         });
@@ -54,7 +51,7 @@ $(document).ready(function() {
                 key: 'none',
                 counter: 0
             }).key;
-            console.log(pushKey);
+
             database.ref().child(pushKey).update({
                 key: pushKey
             });
@@ -69,7 +66,7 @@ $(document).ready(function() {
                 key: 'none',
                 counter: 0
             }).key;
-            console.log(pushKey);
+
             database.ref().child(pushKey).update({
                 key: pushKey
             });
@@ -98,7 +95,6 @@ $(document).ready(function() {
     $(document.body).on('click', '.delete', function() {
         var key = $(this).attr('data-keyDelete');
         String(key);
-        console.log(key);
         $('#modal5').show();
         $('#yes').on('click', function() {
             $('#modal5').hide();

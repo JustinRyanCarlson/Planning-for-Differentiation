@@ -90,7 +90,6 @@ $(document).ready(function() {
             method: 'GET'
         }).done(function(response) {
             $(".preloader-wrapper").hide();
-            console.log(response);
             for (var i = 0; i < 10; i++) {
                 var newEntry = $('<div>').addClass('card-panel');
                 newEntry.attr('data-id', response.items[i].id.videoId);
