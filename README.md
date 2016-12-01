@@ -1,7 +1,7 @@
-# Project Title
+# Planning for Differentiaion
 ## Assign It
 A tool that allows teachers to easily implement differentiation in the classroom, through individual assignment of online resources.
-Teachers can browse across multiple platforms for quality and targetted resources, assign them to students, and manage this information.
+Teachers can browse across multiple platforms for quality and targeted resources, assign them to students, and manage this information.
 
 ## Technologies used
 - HTML5
