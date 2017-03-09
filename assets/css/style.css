@@ -14,16 +14,6 @@ body {
     margin-bottom: 0px;
 }
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-main {
-    flex: 1 0 auto;
-}
-
 
 /*Header*/
 
@@ -280,5 +270,5 @@ textarea.materialize-textarea:focus.valid {
 }
 
 #search-links {
-    min-height: 500px;
+    min-height: 600px;
 }
