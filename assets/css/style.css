@@ -1,4 +1,3 @@
-
 /*General*/
 
 * {
@@ -271,4 +270,20 @@ textarea.materialize-textarea:focus.valid {
 
 #search-links {
     min-height: 600px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 112;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 112;
 }
